@@ -1,0 +1,38 @@
+schema: '2.0'
+stages:
+  evaluate_model:
+    cmd: py eval.py
+    deps:
+    - path: models/iris_model.pkl
+      hash: md5
+      md5: 83ef07be0b0e9c96e97a639ddbcaf8a4
+      size: 3713
+    outs:
+    - path: metrics/report.txt
+      hash: md5
+      md5: 72a031022c0b3934f9ba859886315363
+      size: 389
+  train_model:
+    cmd: python train.py
+    deps:
+    - path: data/iris.csv
+      hash: md5
+      md5: 21d441a28bce4417276097df955afc50
+      size: 2928
+    - path: params.yaml
+      hash: md5
+      md5: 128237a3a17f5b101961c0510e2237b6
+      size: 74
+    - path: train.py
+      hash: md5
+      md5: a2052cad61d619bf9ba3cf89e9a48285
+      size: 1614
+    outs:
+    - path: models/iris_model.pkl
+      hash: md5
+      md5: 0ab84e6f1176c72930d691cb16d81c6b
+      size: 2657
+    - path: results/train/metrics.json
+      hash: md5
+      md5: 987c8a35a630044b24b9ad667403631f
+      size: 32

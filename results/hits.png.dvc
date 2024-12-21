@@ -1,0 +1,5 @@
+outs:
+- md5: 305617f5d71986e04ee1c43489a39f91
+  size: 41341
+  hash: md5
+  path: hits.png

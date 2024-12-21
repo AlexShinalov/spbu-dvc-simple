@@ -1,0 +1,28 @@
+params:
+- results/train/params.yaml
+metrics:
+- results\train\metrics.json
+
+plots:
+- results/cor_m.png
+- results/hits.png
+- result/pairplot.png
+
+stages:
+  evaluate_model:
+    cmd: python eval.py
+    deps:
+    - models/iris_model.pkl
+    outs:
+    - metrics/report.txt
+  train_model:
+    cmd: python train.py
+    deps:
+    - data/iris.csv
+    - params.yaml
+    - train.py
+    outs:
+    - models/iris_model.pkl
+    metrics:
+    - results/train/metrics.json:
+        cache: false

@@ -1,0 +1,6 @@
+random_forest:
+  n_estimators: 1
+  max_depth: 2
+
+train:
+  epochs: 10 
